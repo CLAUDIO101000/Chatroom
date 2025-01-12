@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Chatroom</title>
+</head>
+<body>
+    <div class="app">
+        <div class="screen join-screen active">
+            <div class="form">
+                <h2>Join Chatroom</h2>
+                <div class="form-input">
+                    <label>Username</label>
+                    <input type="text" id="username" class="input-group-field">
+                </div>
+                <div class="form-input">
+                    <label>Profile Image</label>
+                    <input type="file" id="profile-image-input" accept="image/*">
+                </div>
+                <div class="form-input">
+                    <button id="join-user" class="button">Join</button>
+                </div>
+                <div id="error-message" class="error-message"></div>
+            </div>
+            <div class="footer">
+                &copy; Copyright <a href="https://github.com/CLAUDIO101000" target="_blank">Claudio</a> 2025.
+            </div>
+        </div>
+        <div class="screen chat-screen">
+            <div class="header">
+                <div class="logo">Chatroom</div>
+                <button id="exit-chat" class="button alert">Exit</button>
+            </div>
+            <div class="messages">
+            </div>
+            <div class="typebox">
+                <input type="text" id="message-input" class="input-group-field">
+                <input type="file" id="image-input" accept="image/*" style="display: none;">
+                <button id="send-message" class="button">Send</button>
+                <button id="send-image" class="button"><i class="fas fa-image"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="code.js"></script>
+</body>
+</html>
