@@ -1,6 +1,6 @@
 (function () {
     const app = document.querySelector(".app");
-    const socket = io("https://your-heroku-app.herokuapp.com");
+    const socket = io("https://your-vercel-app.vercel.app");
 
     let uname;
     let profileImage = "images/user.png";

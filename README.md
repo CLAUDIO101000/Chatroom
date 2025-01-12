@@ -24,7 +24,7 @@ This is a real-time chatroom application built with Node.js, Express, and Socket
 
 - Node.js installed on your machine
 - A GitHub account
-- A Heroku account (or any other hosting service for Node.js applications)
+- A Vercel account (or any other hosting service for Node.js applications)
 
 ### Installation
 
@@ -41,23 +41,40 @@ This is a real-time chatroom application built with Node.js, Express, and Socket
     npm install
     ```
 
-3. Create a `Procfile` for Heroku:
+3. Create a `vercel.json` file for Vercel:
 
-    ```plaintext
-    web: node server.js
+    ```json
+    {
+      "version": 2,
+      "builds": [
+        {
+          "src": "server.js",
+          "use": "@vercel/node"
+        },
+        {
+          "src": "public/**/*",
+          "use": "@vercel/static"
+        }
+      ],
+      "routes": [
+        {
+          "src": "/(.*)",
+          "dest": "/server.js"
+        }
+      ]
+    }
     ```
 
-4. Deploy the server to Heroku (or any other hosting service):
+4. Deploy the server to Vercel (or any other hosting service):
 
     ```bash
-    heroku create
-    git push heroku main
+    vercel
     ```
 
 5. Update the WebSocket URL in `public/code.js` to point to your deployed server:
 
     ```javascript
-    const socket = io("https://your-heroku-app.herokuapp.com");
+    const socket = io("https://your-vercel-app.vercel.app");
     ```
 
 6. Deploy the static files to GitHub Pages:
@@ -94,7 +111,7 @@ chatroom/
 │   └── images/
 │       └── user.png
 ├── server.js
-├── Procfile
+├── vercel.json
 └── README.md
 ```
 
@@ -114,7 +131,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - [Socket.io](https://socket.io/)
 - [Express](https://expressjs.com/)
-- [Heroku](https://www.heroku.com/)
+- [Vercel](https://vercel.com/)
 - [GitHub Pages](https://pages.github.com/)
 
 ## Author
