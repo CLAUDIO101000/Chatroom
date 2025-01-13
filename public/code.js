@@ -1,7 +1,7 @@
 (function () {
     const app = document.querySelector(".app");
-    const socket = io("https://your-vercel-app.vercel.app");
-
+    const socket = io("https://chatroom-8m1ysgf36-claudios-projects-3bea76e1.vercel.app"); 
+    
     let uname;
     let profileImage = "images/user.png";
 
@@ -34,10 +34,6 @@
         let message = app.querySelector(".chat-screen #message-input").value;
         if (message.length == 0) {
             displayError("Message cannot be empty");
-            return;
-        }
-        if (!profileImage) {
-            displayError("Profile image not loaded");
             return;
         }
         renderMessage("my", {
